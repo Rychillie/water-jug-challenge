@@ -1,8 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Water Jug Challenge - README
 
-## Getting Started
+Welcome to the Water Jug Challenge! This project is an application designed to solve the classic Water Jug enigma, where two jugs with different capacities must be used to measure a specific amount of water. This README provides essential information to understand, set up, and run the application.
 
-First, run the development server:
+### Challenge Details
+
+Before getting started, make sure to read all the details and requirements of the challenge. They are available in the [challenge-details.md](/challenge.md) file.
+
+### Installation and Execution
+
+Ensure you have [Node.js](https://nodejs.org/) installed on your system before proceeding.
+
+1. Clone this repository:
+
+```bash
+git clone https://github.com/Rychillie/water-jug-challenge.git
+```
+
+2. Navigate to the project directory:
+
+```bash
+cd water-jug-challenge
+```
+
+3. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+4. Run the application:
 
 ```bash
 npm run dev
@@ -10,27 +40,28 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Todo List
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- [x] **Environment Configuration**: Clone the repository, install dependencies, and run the application locally.
+- [x] **Logic Implementation**: Develop the necessary logic to solve the Water Jug enigma.
+- [x] **Customization**: Customize the user interface or adjust any necessary configurations.
+- [ ] **Unit Tests**: Write unit tests to ensure code robustness and reliability.
 
-## Learn More
+### Additional Learning
 
-To learn more about Next.js, take a look at the following resources:
+For more information about development with Next.js, refer to the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+You can also explore [the Next.js repository on GitHub](https://github.com/vercel/next.js/) to contribute or provide feedback!
 
-## Deploy on Vercel
+### Deployment on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme), created by the makers of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Check out the [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
