@@ -1,5 +1,7 @@
 'use client';
 
+import { Button, Heading, Input, Label, Separator, Text } from '@/components/elements';
+import { AnimateEnter, Container, FormLine } from '@/components/layout';
 import { useState } from 'react';
 
 type Step = {
@@ -13,7 +15,14 @@ export default function Home() {
   const [goalAmount, setGoalAmount] = useState('');
   const [solutionSteps, setSolutionSteps] = useState<Step[]>([]);
 
-  const solveWaterJugChallenge = () => {
+  function clenSolutionSteps() {
+    setSolutionSteps([]);
+    setJugXCapacity('');
+    setJugYCapacity('');
+    setGoalAmount('');
+  }
+
+  function solveWaterJugChallenge() {
     // Clear the solution steps
     setSolutionSteps([]);
 
@@ -23,15 +32,15 @@ export default function Home() {
     const zAmount = parseInt(goalAmount);
 
     // Function to add a step to the solution
-    const addStep = (number: number, explanation: string) => {
+    function addStep(number: number, explanation: string) {
       setSolutionSteps((prevSteps) => [...prevSteps, { number, explanation }]);
-    };
+    }
 
     // Check for impossible solution
-    const isSolutionImpossible = () => {
+    function isSolutionImpossible() {
       const gcd = (a: number, b: number): number => (b === 0 ? a : gcd(b, a % b));
       return zAmount % gcd(xCapacity, yCapacity) !== 0;
-    };
+    }
 
     if (isSolutionImpossible()) {
       addStep(1, 'No solution possible.');
@@ -48,52 +57,84 @@ export default function Home() {
     // Example output to check the logic
     // eslint-disable-next-line no-console
     return console.log(solutionSteps);
-  };
+  }
 
   return (
-    <div>
-      <h1>Water Jug Challenge</h1>
-      <div>
-        <label htmlFor="jugX">Capacity of Jug X:</label>
-        <input
-          type="number"
-          id="jugX"
-          value={jugXCapacity}
-          onChange={(e) => setJugXCapacity(e.target.value)}
-        />
+    <Container>
+      <AnimateEnter delay={0.4}>
+        <header className="mb-8">
+          <Heading>Water Jug Challenge</Heading>
+          <Text colour="secondary">Fill the options</Text>
+        </header>
+      </AnimateEnter>
+
+      <div className="space-y-3">
+        <FormLine delay={0.6}>
+          <Label htmlFor="jugX">Capacity of Jug X:</Label>
+          <Input
+            type="number"
+            id="jugX"
+            value={jugXCapacity}
+            onChange={(e) => setJugXCapacity(e.target.value)}
+          />
+        </FormLine>
+        <FormLine delay={0.65}>
+          <Label htmlFor="jugY">Capacity of Jug Y:</Label>
+          <Input
+            type="number"
+            id="jugY"
+            value={jugYCapacity}
+            onChange={(e) => setJugYCapacity(e.target.value)}
+          />
+        </FormLine>
+        <FormLine delay={0.7}>
+          <Label htmlFor="goal">Desired Amount Z:</Label>
+          <Input
+            type="number"
+            id="goal"
+            value={goalAmount}
+            onChange={(e) => setGoalAmount(e.target.value)}
+          />
+        </FormLine>
       </div>
-      <div>
-        <label htmlFor="jugY">Capacity of Jug Y:</label>
-        <input
-          type="number"
-          id="jugY"
-          value={jugYCapacity}
-          onChange={(e) => setJugYCapacity(e.target.value)}
-        />
-      </div>
-      <div>
-        <label htmlFor="goal">Desired Amount Z:</label>
-        <input
-          type="number"
-          id="goal"
-          value={goalAmount}
-          onChange={(e) => setGoalAmount(e.target.value)}
-        />
-      </div>
-      <button onClick={solveWaterJugChallenge}>Solve</button>
+
+      {jugXCapacity && jugYCapacity && goalAmount && (
+        <AnimateEnter delay={0.3}>
+          <div className="mt-6 flex justify-between">
+            <Button priority="success" onClick={solveWaterJugChallenge}>
+              Solve
+            </Button>
+
+            <AnimateEnter delay={0.3}>
+              <Button priority="danger" onClick={clenSolutionSteps}>
+                Clean
+              </Button>
+            </AnimateEnter>
+          </div>
+        </AnimateEnter>
+      )}
 
       {solutionSteps.length > 0 && (
-        <div>
-          <h2>Solution Steps:</h2>
-          <ol>
-            {solutionSteps.map((step) => (
-              <li key={step.number}>
-                <strong>Step {step.number}:</strong> {step.explanation}
-              </li>
-            ))}
-          </ol>
-        </div>
+        <>
+          <AnimateEnter delay={0.2}>
+            <Separator className="my-8" />
+          </AnimateEnter>
+
+          <AnimateEnter delay={0.4}>
+            <div className="flex flex-col gap-6">
+              <Heading as="h2">Solution Steps:</Heading>
+
+              <div className="flex flex-col gap-3">
+                {solutionSteps.map((step, index) => (
+                  <AnimateEnter key={step.number} delay={0.6 + index * 0.5}>
+                    <strong>Step {step.number}:</strong> {step.explanation}
+                  </AnimateEnter>
+                ))}
+              </div>
+            </div>
+          </AnimateEnter>
+        </>
       )}
-    </div>
+    </Container>
   );
 }
