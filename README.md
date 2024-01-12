@@ -1,8 +1,18 @@
-## Water Jug Challenge - README
+<center>
+<h1>Water Jug Challenge</h1>
+</center>
 
-Welcome to the Water Jug Challenge! This project is an application designed to solve the classic Water Jug enigma, where two jugs with different capacities must be used to measure a specific amount of water. This README provides essential information to understand, set up, and run the application.
+<p align="center">
+  <a href="#challenge-details">Challenge Details</a> •
+  <a href="#installation-and-execution">Installation and Execution</a> •
+  <a href="#todo-list">Task List</a>
+</p>
+
+![Water Jug Challenge Banner](./public/screenshot.jpeg)
 
 ### Challenge Details
+
+Welcome to the Water Jug Challenge! This project is an application designed to solve the classic Water Jug enigma, where two jugs with different capacities must be used to measure a specific amount of water. This README provides essential information to understand, set up, and run the application.
 
 Before getting started, make sure to read all the details and requirements of the challenge. They are available in the [challenge-details.md](/challenge.md) file.
 
