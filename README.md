@@ -1,6 +1,4 @@
-<center>
-<h1>Water Jug Challenge</h1>
-</center>
+<h1 align="center">Water Jug Challenge</h1>
 
 <p align="center">
   <a href="#challenge-details">Challenge Details</a> •
